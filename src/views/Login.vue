@@ -56,7 +56,7 @@ export default {
   methods: {
       handleLogin: function() {
           console.log(this.URL)
-          fetch( this.URL+ "/api/token/", {
+          fetch("https://django-backend-bx.herokuapp.com/api/token/", {
               method: 'post',
               headers: {
                   "Content-Type":"application/json"

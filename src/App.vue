@@ -4,7 +4,7 @@
     <Header v-bind:URL="URL" v-bind:loggedIn="loggedIn" @logout="logout"/>
      
     
-    <router-view v-bind:URL="URL" @loggedIn="login($event)"/>
+    <router-view v-bind:URL=URL @loggedIn="login($event)"/>
     <Footer/>
   </div>
 </template>
@@ -47,9 +47,9 @@ export default {
   data:function(){
         return {
             loggedIn: !JSON.parse(localStorage.getItem("token"))? false: true,
-        
+            uuid: JSON.parse(localStorage.getItem("uuid")),
             tokens: JSON.parse(localStorage.getItem("token")),
-            URL: 'https://django-backend-bx.herokuapp.com/'
+            URL: 'https://django-backend-bx.herokuapp.com/',
         }
     },
 

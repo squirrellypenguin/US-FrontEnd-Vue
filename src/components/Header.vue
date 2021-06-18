@@ -32,7 +32,7 @@
                 <div class="buttons">
               
                     <a class="button is-light">
-                        <router-link to="/login"  v-if="!loggedIn"><button class="button is-success">Login</button></router-link> 
+                        <router-link to="/login" v-bind:URL="URL" v-if="!loggedIn"><button class="button is-success">Login</button></router-link> 
                         <button class="button is-danger" v-if="loggedIn" @click="logout">Logout</button> 
                     </a>
                 </div>
