@@ -4,7 +4,7 @@
     <Header v-bind:URL="URL" v-bind:loggedIn="loggedIn" @logout="logout"/>
      
     
-    <router-view v-bind:URL=URL @loggedIn="login($event)"/>
+    <router-view v-bind:tokens="tokens" v-bind:uuid="uuid" v-bind:URL=URL @loggedIn="login($event)"/>
     <Footer/>
   </div>
 </template>
@@ -62,15 +62,16 @@ export default {
         let decoded = jwt_decode(event.access);
         let uuid = decoded.user_id
         localStorage.setItem("uuid", JSON.stringify(uuid))
-        this.$router.push('/')
+        this.$router.push('/events')
       },
       logout: function() {
         console.log("activated")
-        this.loggedIn =false,
+        this.loggedIn = false
         this.tokens = ''
         localStorage.setItem("token", "")
         localStorage.setItem("uuid", "")
-      }
+      },
+
     }
 }
 </script>
