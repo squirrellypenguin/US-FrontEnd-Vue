@@ -69,7 +69,6 @@ export default {
           .then(response => response.json())
           .then(data => {
               this.$emit('loggedIn', data)
-              console.log(data)
       })
   }
   }

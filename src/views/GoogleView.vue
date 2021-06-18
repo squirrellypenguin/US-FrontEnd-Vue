@@ -32,7 +32,7 @@
     import Events from './Events.vue'
 
 export default {
-  name: 'Googleview',   
+  name: 'GoogleView',   
   props: ['URL', 'tokens', 'uuid', 'loggedIn'], 
   components: {
     Events

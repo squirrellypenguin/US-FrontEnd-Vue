@@ -10,19 +10,19 @@
         </template>
         <template #start>
             <b-navbar-item href="#">
-                      <router-link to="/">Home</router-link> 
+                      <router-link to="/list">List</router-link> 
 
             </b-navbar-item>
             <b-navbar-item href="#">
-             <router-link to="/events">Events</router-link>
+             <router-link to="/home">Events</router-link>
                 
             </b-navbar-item>
             <b-navbar-dropdown label="Info">
                 <b-navbar-item href="#">
-                    About
+                   <router-link to="/about">About</router-link>
                 </b-navbar-item>
                 <b-navbar-item href="#">
-                    Contact
+                    <router-link to="/contact">Contact</router-link>
                 </b-navbar-item>
             </b-navbar-dropdown>
         </template>

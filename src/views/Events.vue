@@ -1,7 +1,7 @@
 <template>
   <div class="events">
  
-    <section>
+    <section v-if="this.loggedIn === true">
         <b-field  label="Title">
             <b-input v-model="title" type="text" ></b-input>
         </b-field>
@@ -20,7 +20,7 @@
           <b-button @click="editItem" type="is-primary">blah</b-button>
     </section>
 
-
+   <div v-if="events.code !== 'token_not_valid'">  
   <li v-for="event of events" v-bind:key="event.id">
   <b-message title="`${event.title}`" >
   {{event.title}} - {{event.summary}} - {{event.url}}
@@ -28,6 +28,7 @@
   <button @click="deleteEvent" class="button is-success" v-bind:id="event.id" >Delete</button>
   </b-message> 
   </li>
+  </div>
   </div>
 </template>
 
@@ -48,7 +49,7 @@ export default {
       uid: '',
     }
   },
-  props: ['uuid', 'URL', 'tokens'],
+  props: ['uuid', 'URL', 'loggedIn', 'tokens'],
   methods: {
   before : function (id){
           
