@@ -4,7 +4,7 @@
     <Header v-bind:URL="URL" v-bind:loggedIn="loggedIn" @logout="logout"/>
      
     
-    <router-view v-bind:tokens="tokens" v-bind:uuid="uuid" v-bind:URL=URL @loggedIn="login($event)"/>
+    <router-view v-bind:tokens="tokens" v-bind:uuid="uuid" v-bind:URL="URL" @loggedIn="login($event)"/>
     <Footer/>
   </div>
 </template>
