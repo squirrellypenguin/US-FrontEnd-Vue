@@ -17,13 +17,15 @@
             <b-input v-model="summary" maxlength="200" type="textarea"></b-input>
         </b-field>
         <b-button @click="create" type="is-primary">Primary</b-button>
+          <b-button @click="editItem" type="is-primary">blah</b-button>
     </section>
 
 
   <li v-for="event of events" v-bind:key="event.id">
   <b-message title="`${event.title}`" >
   {{event.title}} - {{event.summary}} - {{event.url}}
-  <button @click="deleteEvent" class="button is-success" v-bind:id="event.id" > edit</button>
+  <button @click="editSelect(event)" class="button is-success" v-bind:id="event.id" >Edit</button>
+  <button @click="deleteEvent" class="button is-success" v-bind:id="event.id" >Delete</button>
   </b-message> 
   </li>
   </div>
@@ -40,12 +42,17 @@ export default {
       title: '',
       url: '',
       summary: '',
+      lat: '',
+      long: '',
+      user: '',
+      uid: '',
     }
   },
   props: ['uuid', 'URL', 'tokens'],
   methods: {
-  before : function (){
-          fetch("https://django-backend-bx.herokuapp.com/events/", {
+  before : function (id){
+          
+          fetch("https://django-backend-bx.herokuapp.com/events/user/" + id, {
               method: 'get',
               headers: {
                 
@@ -60,7 +67,7 @@ export default {
       })
   },
   create: function () {
-         console.log(this.title)
+         console.log(this.$attrs.places.lat)
           fetch("https://django-backend-bx.herokuapp.com/events/", {
               method: 'post',
               headers: {
@@ -72,13 +79,20 @@ export default {
                   title: this.title,
                   url: this.url,
                   summary: this.summary,
+                  lat: this.$attrs.places.lat,
+                  long: this.$attrs.places.lng,
+                  user: this.uuid
+
               })
-        
+            
           })
           .then(response => response.json())
           .then(data => {
               this.before()
               console.log(data)
+              this.title = ''
+              this.summary = ''
+              this.url = ''
       })
   },
     deleteEvent: function () {
@@ -93,13 +107,49 @@ export default {
         
           })
           .then(() => {
+                    this.title = ''
+              this.summary = ''
+              this.url = ''
             this.before()
           })
-      }
+      },
+    editSelect: function (item) {
+        this.title = item.title
+        this.url = item.url
+        this.summary = item.summary
+        this.uid = item.id
+      },
+         
+         editItem: async function () {
+                    //  const id = event.target.id
+       let foo =     fetch("https://django-backend-bx.herokuapp.com/events/" + this.uid + '/', {
+          method: "put",
+          headers: {
+                       'Content-Type': 'application/json',
+                  authorization: `Bearer ${this.tokens.access}`
+          },
+          body: JSON.stringify({
+            title: this.title,
+            url: this.url,
+            summary: this.summary,
+            // lat: this.editLat,
+            // latRef: "N",
+            // long: this.editLong,
+            // picture_id: "",
+            // longRef: "N",
+            // userid: "http://localhost:8000/api/user/3/",
+          }),
+        })
+        console.log(foo)
+            this.title = ''
+              this.summary = ''
+              this.url = ''
+        this.before()
+      },  
   
   },
    beforeMount(){
-    this.before()
+    this.before(this.uuid)
  },
   
 }
