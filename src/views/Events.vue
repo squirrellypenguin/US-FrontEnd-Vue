@@ -53,7 +53,7 @@ export default {
   methods: {
   before : function (id){
           
-          fetch("https://django-backend-bx.herokuapp.com/events/user/" + id, {
+          fetch("https://django-backend-bx.herokuapp.com/events/user/" + id + '', {
               method: 'get',
               headers: {
                 
@@ -89,7 +89,7 @@ export default {
           })
           .then(response => response.json())
           .then(data => {
-              this.before()
+              this.before(this.uuid)
               console.log(data)
               this.title = ''
               this.summary = ''
@@ -97,8 +97,10 @@ export default {
       })
   },
     deleteEvent: function () {
+        
         const id = event.target.id
-          fetch("https://django-backend-bx.herokuapp.com/events/" + id + '/', {
+        console.log(id)
+          fetch("https://django-backend-bx.herokuapp.com/events/" + id +'/', {
               method: 'delete',
               headers: {
                   authorization: `Bearer ${this.tokens.access}`
@@ -111,7 +113,8 @@ export default {
                     this.title = ''
               this.summary = ''
               this.url = ''
-            this.before()
+              console.log(this.uuid)
+            this.before(this.uuid)
           })
       },
     editSelect: function (item) {
@@ -123,7 +126,8 @@ export default {
          
          editItem: async function () {
                     //  const id = event.target.id
-       let foo =     fetch("https://django-backend-bx.herokuapp.com/events/" + this.uid + '/', {
+                    console.log(this.uid)
+       let foo =     fetch("https://django-backend-bx.herokuapp.com/events/" + this.uid +'/', {
           method: "put",
           headers: {
                        'Content-Type': 'application/json',
@@ -145,7 +149,7 @@ export default {
             this.title = ''
               this.summary = ''
               this.url = ''
-        this.before()
+        this.before(this.uuid)
       },  
   
   },
