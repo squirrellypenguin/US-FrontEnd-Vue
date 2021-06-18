@@ -14,7 +14,7 @@
 
             </b-navbar-item>
             <b-navbar-item href="#">
-             <router-link to="/about">About</router-link>
+             <router-link to="/events">Events</router-link>
                 
             </b-navbar-item>
             <b-navbar-dropdown label="Info">
@@ -32,7 +32,8 @@
                 <div class="buttons">
               
                     <a class="button is-light">
-                        <router-link to="/">Home</router-link> 
+                        <router-link to="/login"  v-if="!loggedIn"><button class="button is-success">Login</button></router-link> 
+                        <button class="button is-danger" v-if="loggedIn" @click="logout">Logout</button> 
                     </a>
                 </div>
             </b-navbar-item>
@@ -45,8 +46,13 @@
 <script>
 
 export default {
-    name: 'Header'
-
+    name: 'Header',
+    props: ['URL', 'loggedIn'],
+    methods: {
+        logout: function() {
+            this.$emit('logout')
+        }
+    }
     
 }
 </script>

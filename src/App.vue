@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <Header/>
-    <div id="nav">
+    
+    <Header v-bind:URL="URL" v-bind:loggedIn="loggedIn" @logout="logout"/>
      
-    </div>
-    <router-view/>
+    
+    <router-view v-bind:URL="URL" @loggedIn="login($event)"/>
     <Footer/>
   </div>
 </template>
@@ -35,6 +35,7 @@
 <script>
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
+import jwt_decode from "jwt-decode";
 
 export default {
   name: "App",
@@ -42,11 +43,34 @@ export default {
     Header,
     Footer
   },
+
   data:function(){
         return {
-            loggedIn: false,
-            token: ''
+            loggedIn: !JSON.parse(localStorage.getItem("token"))? false: true,
+        
+            tokens: JSON.parse(localStorage.getItem("token")),
+            URL: 'https://django-backend-bx.herokuapp.com/'
         }
+    },
+
+    methods: {
+      login:  function(event) {
+        console.log(event)
+        this.loggedIn = true
+        this.tokens = event
+        localStorage.setItem("token", JSON.stringify(event))
+        let decoded = jwt_decode(event.access);
+        let uuid = decoded.user_id
+        localStorage.setItem("uuid", JSON.stringify(uuid))
+        this.$router.push('/')
+      },
+      logout: function() {
+        console.log("activated")
+        this.loggedIn =false,
+        this.tokens = ''
+        localStorage.setItem("token", "")
+        localStorage.setItem("uuid", "")
+      }
     }
 }
 </script>
