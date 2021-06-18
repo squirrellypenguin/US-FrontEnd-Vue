@@ -1,6 +1,6 @@
 <template>
 <div>
-<GoogleView v-bind:tokens="tokens" v-bind:uuid="uuid" v-bind:URL="URL"/>
+<GoogleView v-bind:loggedIn="loggedIn" v-bind:tokens="tokens" v-bind:uuid="uuid" v-bind:URL="URL"/>
 
 <!-- <ItemMap /> -->
 </div>

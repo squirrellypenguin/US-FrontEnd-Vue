@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-  foo
-  <Map v-bind:tokens="tokens" v-bind:uuid="uuid" v-bind:URL="URL" />
+  <Map v-bind:loggedIn="loggedIn" v-bind:tokens="tokens" v-bind:uuid="uuid" v-bind:URL="URL" />
   </div>
 </template>
 

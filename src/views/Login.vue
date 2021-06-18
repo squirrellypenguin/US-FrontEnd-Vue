@@ -52,7 +52,7 @@ export default {
            
       }
   },
-  props: ['URL'],
+  props: ['URL', 'uuid', 'tokens', 'loggedIn'],
   methods: {
       handleLogin: function() {
           console.log(this.URL)

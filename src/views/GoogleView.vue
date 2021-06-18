@@ -1,5 +1,15 @@
 <template>
-  <div>
+<div>
+    
+    
+    <div v-if="this.loggedIn !== true">
+    <p> Hidden from you</p>
+    </div>
+
+
+
+  <div   v-if="this.loggedIn === true">
+
     <div>
       <h2>Search and add a pin</h2>
       <GmapAutocomplete
@@ -24,7 +34,9 @@
         @click="center=m.position"
       />
     </GmapMap>
-    <Events  :places="center"  v-bind:tokens="tokens" v-bind:uuid="uuid" v-bind:URL="URL"/>
+    <Events v-bind:loggedIn="loggedIn" :places="center"  v-bind:tokens="tokens" v-bind:uuid="uuid" v-bind:URL="URL"/>
+
+  </div>
   </div>
 </template>
 

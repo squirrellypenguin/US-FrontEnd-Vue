@@ -5,6 +5,7 @@ import Login from '../views/Login.vue'
 import List from '../views/List.vue'
 import Main from '../views/Main.vue'
 import About from '../views/About.vue'
+import Register from '../views/Register.vue'
 
 import Contact from '../views/Contact.vue'
 Vue.use(VueRouter)
@@ -14,6 +15,12 @@ const routes = [
     path: '/',
     name: 'Main',
     component: Main
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register,
+    props: true
   },
   {
     path: '/login',
