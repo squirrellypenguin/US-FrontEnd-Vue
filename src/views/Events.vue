@@ -29,14 +29,18 @@
   </b-message> 
   </li>
   </div>
+  <Add v-bind:loggedIn="loggedIn" v-bind:places="places"  v-bind:tokens="tokens" v-bind:uuid="uuid" v-bind:URL="URL"/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-
+import Add from './Add.vue'
 export default {
   name: 'Events',
+  components: {
+    Add
+  },
   data: function () {
     return {
       events:[],
@@ -49,7 +53,7 @@ export default {
       uid: '',
     }
   },
-  props: ['uuid', 'URL', 'loggedIn', 'tokens'],
+  props: ['uuid', 'URL', 'loggedIn', 'places', 'tokens'],
   methods: {
   before : function (id){
           
@@ -110,11 +114,11 @@ export default {
         
           })
           .then(() => {
-                    this.title = ''
+              this.title = ''
               this.summary = ''
               this.url = ''
               console.log(this.uuid)
-            this.before(this.uuid)
+              this.before(this.uuid)
           })
       },
     editSelect: function (item) {
@@ -147,9 +151,9 @@ export default {
         })
         console.log(foo)
             this.title = ''
-              this.summary = ''
-              this.url = ''
-        this.before(this.uuid)
+            this.summary = ''
+            this.url = ''
+            this.before(this.uuid)
       },  
   
   },
