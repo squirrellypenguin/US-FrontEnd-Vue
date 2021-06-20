@@ -1,6 +1,6 @@
 <template>
   <div class="add">
-    <h2 style="padding-bottom: 20px">Add your report</h2>
+    <hr>
     <form enctype="multipart/form-data">
     <div class="columns">
     <div class="column">

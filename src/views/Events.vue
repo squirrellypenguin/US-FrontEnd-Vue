@@ -2,15 +2,19 @@
   <div class="font events">
     <hr />
     <b-button
-      v-on:click="isHidden = false"
-      v-if="isHidden === true"
+      v-on:click="isHidden1 = false"
+      v-if="isHidden1 === true"
       type="is-primary"
       >Create Post</b-button
     >
-    <div v-if="isHidden === false">
-      <section v-if="this.loggedIn === true">
-   
-      </section>
+      <b-button
+      v-on:click="isHidden1 = true"
+      v-if="isHidden1 === false"
+      type="is-danger"
+      >Cancel</b-button
+    >
+    <div v-if="isHidden1 === false">
+      <section v-if="this.loggedIn === true"></section>
 
       <Add
         v-bind:loggedIn="loggedIn"
@@ -33,52 +37,46 @@
             </div>
             <div class="column is-two-fifths is-narrow-mobile">
               <h2>
-                <bold>{{ event.title }}</bold>
+                <bold>{{ event.id }}</bold>
               </h2>
               <p style="text-align: left">
-                {{ event.summary }}
+                {{ event.summary }} 
               </p>
-              
-    <div v-if="isHidden === false">
-        <b-field label="Title">
-          <b-input v-model="title" type="text"></b-input>
-        </b-field>
 
-        <b-field label="URL">
-          <b-input v-model="url" type="text"> </b-input>
-        </b-field>
+              <div v-if="isHidden === false && uid === event.id">
+                <b-field label="Title">
+                  <b-input v-model="title" type="text"></b-input>
+                </b-field>
 
-        <b-field label="Summary">
-          <b-input v-model="summary" maxlength="300" type="textarea"></b-input>
-        </b-field>
-        <!-- <b-button v-on:click="isHidden = true" @click="create" type="is-primary"
+                <b-field label="URL">
+                  <b-input v-model="url" type="text"> </b-input>
+                </b-field>
+
+                <b-field label="Summary">
+                  <b-input
+                    v-model="summary"
+                    maxlength="300"
+                    type="textarea"
+                  ></b-input>
+                </b-field>
+                <!-- <b-button v-on:click="isHidden = true" @click="create" type="is-primary"
           >Primary</b-button
         > -->
-        <b-button  style="margin-right: 20px;"
-          v-on:click="isHidden = true"
-          @click="editItem"
-          type="is-primary"
-          >Submit</b-button
-        >
-            <button
-                @click="deleteEvent"
-                class="button is-danger"
-                v-bind:id="event.id"
-              >
-                Delete
-              </button>
-
-
-</div>
-
-
-
-
-
-
-
-
-
+                <b-button
+                  style="margin-right: 20px;"
+                  v-on:click="isHidden = true"
+                  @click="editItem"
+                  type="is-primary"
+                  >Submit</b-button
+                >
+                <button
+                  @click="deleteEvent"
+                  class="button is-danger"
+                  v-bind:id="event.id"
+                >
+                  Delete
+                </button>
+              </div>
             </div>
             <div class="column is-two-fifths is-narrow-mobile">
               <button
@@ -89,29 +87,11 @@
               >
                 Edit
               </button>
-         
-              
             </div>
           </div>
 
-          <!-- 
-      <figure class="image is-128x128">
-        <img :src="event.url" alt="Image">
-      </figure> -->
-          <!-- <figure class="image is-128x128">
-        <img :src="event.url" alt="Image">
-        </figure>
-        
-          <h2>{{event.title}}</h2>
-        <p>
-          {{event.summary}} 
-        </p>
-        
-        
-        
-        <button @click="editSelect(event)" class="button is-warning" v-bind:id="event.id" >Edit</button> <button @click="deleteEvent" class="button is-danger" v-bind:id="event.id" >Delete</button>
-      
-        --></div>
+
+</div>
       </li>
     </div>
     <hr />
@@ -155,6 +135,7 @@ export default {
       user: "",
       uid: "",
       isHidden: true,
+      isHidden1: true,
     };
   },
   props: ["uuid", "URL", "loggedIn", "places", "tokens"],
