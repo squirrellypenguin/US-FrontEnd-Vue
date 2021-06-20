@@ -11,15 +11,16 @@
   <div   v-if="this.loggedIn === true">
 
     <div>
-      <h2>Search and add a pin</h2>
-      <GmapAutocomplete
-        @place_changed='setPlace'
-      />
-      <button
+      <h2>Click to submit position</h2>
+      <button class="button is-info is-light"
         @click='addMarker'
       >
-        Add
+        Provide
       </button>
+      
+      <GmapAutocomplete  style="line-height: 34px; font-size: 20px;"  placeholder=" the location"
+        @place_changed='setPlace'
+      />
     </div>
     <br>
     <GmapMap

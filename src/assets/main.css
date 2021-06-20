@@ -1,0 +1,22 @@
+
+
+
+
+.font {
+    font-family: 'Montserrat';
+}
+.notification .is-primary {
+    background-color: black;
+    
+}    
+.title-font {
+    font-family: 'Chivo';
+    font-size: 46px;
+    margin-top: 10px;
+  
+}
+.mono {
+    line-height: 13px;
+    font-family: 'Cutive Mono', monospace;
+    
+}

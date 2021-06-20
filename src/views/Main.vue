@@ -1,11 +1,80 @@
-<template>
+<!-- <template>
+
   <div class="main">
-  
-  <h1> Landing Page </h1>
+  <div class="container">
+  <div class="notification" style="background-color:limegreen;">
+  <h1>Urban Safari</h1>
+  <div class="columns">
+  <div class="column">
+  <p style="padding: 10px; padding-right: 20px; text-align: justify; background-color: white; border-radius: 10px; color: #151515">Welomce to UrbanSafari, your desittion to catalog the ever increaing invasion of human space from these animal invaders.  Whether it's turkies on the highway or pizz stealing rodent you will find the space to detail these adventures here.</p>
+  </div>
+  <div class="column">
+</div>
+</div>
+  <p>Explore the reports! If you want to contribute please signup.</p>
+  </div>
+  </div>
   
   </div>
+</template> -->
+<template>
+  
+<div class="font">
+<div class="tile is-ancestor">
+  <div class="tile is-vertical is-8">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification is-primary">
+          <p style="padding-top: 10px; margin-right: -25px" class="title-font title">Cement Safari</p>
+          <p style="padding-left: 20px;  text-align: justify; font-size: 14px" class="mono subtitle">your desittion to catalog the ever increaing incursion on human space from these animal invaders.</p>
+        </article>
+        <article class="tile is-child notification is-warning">
+        
+          <p style="text-align: justify ;font-size:14px" class="subtitle">Whether it's turkeys on the highway or a pizza stealing rodent, you will find the space to detail these adventures here.</p>
+        </article>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-info">
+       
+          <p class="subtitle">Animals being jerks</p>
+          <figure class="image is-4by3">
+            <img src="https://bulma.io/images/placeholders/640x480.png">
+          </figure>
+            <figure class="image is-4by3">
+            <img src="https://bulma.io/images/placeholders/640x480.png">
+          </figure>
+        </article>
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-danger">
+        <p style="font-size: 24px" class="title">Explore the reports! </p>
+        <p style="margin-left: -15px;     line-height: 20px;text-align: left; margin-right: -75px" class="mono subtitle">If you want to contribute please signup.</p>
+        <div class="content">
+          <!-- Content -->
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child notification is-success">
+      <div class="content">
+        <p class="title">Tall tile</p>
+        <p class="subtitle"></p>
+        <div class="content">
+          <!-- Content -->
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+</div>
 </template>
-
+<style scoped src="@/assets/main.css">
+.title-font {
+    font-family: 'Chivo';
+}
+</style>
 <script>
 
 

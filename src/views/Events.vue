@@ -1,6 +1,8 @@
 <template>
-  <div class="events">
- 
+  <div class="font events">
+ <hr/>
+<b-button v-on:click="isHidden = false" v-if="isHidden === true" type="is-primary">Create Post</b-button>
+  <div v-if="isHidden === false" >
     <section v-if="this.loggedIn === true">
         <b-field  label="Title">
             <b-input v-model="title" type="text" ></b-input>
@@ -13,26 +15,98 @@
             </b-input>
         </b-field>
 
-        <b-field label="Sumary">
-            <b-input v-model="summary" maxlength="200" type="textarea"></b-input>
+        <b-field label="Summary">
+            <b-input v-model="summary" maxlength="300" type="textarea"></b-input>
         </b-field>
-        <b-button @click="create" type="is-primary">Primary</b-button>
-          <b-button @click="editItem" type="is-primary">blah</b-button>
+        <b-button v-on:click="isHidden = true" @click="create" type="is-primary">Primary</b-button>
+          <b-button v-on:click="isHidden = true" @click="editItem" type="is-primary">blah</b-button>
     </section>
 
+  <Add v-bind:loggedIn="loggedIn" v-bind:places="places"  v-bind:tokens="tokens" v-bind:uuid="uuid" v-bind:URL="URL"/>
+  
+</div>
    <div v-if="events.code !== 'token_not_valid'">  
   <li v-for="event of events" v-bind:key="event.id">
-  <b-message title="`${event.title}`" >
-  {{event.title}} - {{event.summary}} - {{event.url}}
-  <button @click="editSelect(event)" class="button is-success" v-bind:id="event.id" >Edit</button>
-  <button @click="deleteEvent" class="button is-success" v-bind:id="event.id" >Delete</button>
-  </b-message> 
+
+
+
+    <hr>
+
+  <div class="box">
+<div class="columns">
+  <div class="column is-one-fifth is-narrow-mobile">
+     <figure class="image ">
+        <img :src="event.url" alt="Image">
+        </figure>
+
+  </div>
+  <div class="column is-two-fifths is-narrow-mobile">
+          <h2><bold>{{event.title}}</bold></h2>
+        <p style="text-align: left" >
+          {{event.summary}} 
+        </p>
+  
+  </div>
+  <div class="column is-two-fifths is-narrow-mobile">
+   <button v-on:click="isHidden = false" @click="editSelect(event)" class="button is-warning" v-bind:id="event.id" >Edit</button> <button @click="deleteEvent" class="button is-danger" v-bind:id="event.id" >Delete</button>
+   </div>
+</div>
+
+<!-- 
+      <figure class="image is-128x128">
+        <img :src="event.url" alt="Image">
+      </figure> -->
+        <!-- <figure class="image is-128x128">
+        <img :src="event.url" alt="Image">
+        </figure>
+        
+          <h2>{{event.title}}</h2>
+        <p>
+          {{event.summary}} 
+        </p>
+        
+        
+        
+        <button @click="editSelect(event)" class="button is-warning" v-bind:id="event.id" >Edit</button> <button @click="deleteEvent" class="button is-danger" v-bind:id="event.id" >Delete</button>
+      
+        -->
+     
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
   </li>
   </div>
-  <Add v-bind:loggedIn="loggedIn" v-bind:places="places"  v-bind:tokens="tokens" v-bind:uuid="uuid" v-bind:URL="URL"/>
-  </div>
-</template>
+<hr>
 
+</div>
+</template>
+<style scoped src="@/assets/main.css">
+@media only screen and (max-width: 600px){
+.events {
+width: 300px;
+}
+.box {
+margin-right: -75px;
+margin-left: 75px;}
+}
+@media only screen and (max-width: 400px){
+.events {
+}
+.box {
+margin-right: -50px;
+margin-left: 15px;}
+}
+</style>
 <script>
 // @ is an alias to /src
 import Add from './Add.vue'
@@ -51,6 +125,7 @@ export default {
       long: '',
       user: '',
       uid: '',
+      isHidden: true
     }
   },
   props: ['uuid', 'URL', 'loggedIn', 'places', 'tokens'],

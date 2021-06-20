@@ -1,10 +1,10 @@
 <template>
-  <div class="list">
-  foo
-        <GmapAutocomplete
+  <div class="font container">
+  
+        <GmapAutocomplete  style="line-height: 34px; font-size: 20px;"
         @place_changed='setPlace'
       />
-      <button
+      <button class="button is-info is-light"
         @click='addMarker'
       >
         Find
@@ -21,16 +21,60 @@
         @click="setPlace"
       />
     </GmapMap>
- <div v-if="events.code !== 'token_not_valid'">  
+ <!-- <div v-if="events.code !== 'token_not_valid'">  
    <li v-for="event of events" v-bind:key="event.id">
   <b-message title="`${event.title}`" >
   {{event.title}} - {{event.summary}} - {{event.url}} - {{event.lat}} - {{event.long}}
 
   </b-message> 
   </li>
+  </div> -->
+  <div >
+  <b-carousel 
+   :indicator="true"
+    :pause-hover="true"
+      style="text-shadow: 1px 1px 2px #333;"
+    :interval="20000"
+    animated="fade"
+  
+  >
+        <b-carousel-item v-for="event of events" v-bind:key="event.id">
+            <section :class="`hero is-medium`">
+                <div class="card">
+                <h1 class="title">{{event.title}}</h1>
+                <p>{{event.summary}}</p>
+                <img  style="width: 100%; " :src="event.url" /> 
+                </div>
+            </section>
+        </b-carousel-item>
+    </b-carousel>
+    </div>
   </div>
-  </div>
+
+
+  
 </template>
+
+
+
+
+<style scoped src="@/assets/main.css">
+@media only screen and (max-width: 600px){
+.container {
+width: 300px;
+}
+}
+
+</style>
+
+
+
+
+
+
+
+
+
 
 <script>
 

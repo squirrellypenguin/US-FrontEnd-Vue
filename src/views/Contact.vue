@@ -2,6 +2,7 @@
   <div class="contact">
   Contact
   
+  This is my  project yada yada
   </div>
 </template>
 
