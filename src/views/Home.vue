@@ -3,7 +3,12 @@
   <Map v-bind:loggedIn="loggedIn" v-bind:tokens="tokens" v-bind:uuid="uuid" v-bind:URL="URL" />
   </div>
 </template>
+<style>
+.home {
+width: 100%;
+}
 
+</style>
 <script>
 import Map from './Map.vue'
 

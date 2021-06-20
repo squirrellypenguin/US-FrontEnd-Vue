@@ -1,14 +1,32 @@
 <template>
   <div class="add">
-    <h2>Add an item</h2>xcvzv
+    <h2 style="padding-bottom: 20px">Add your report</h2>
     <form enctype="multipart/form-data">
-      <p>Title: </p><input v-model="inputName">
-      <p>Summary :</p><textarea v-model="inputDescription"></textarea>
-      <p>Picture :</p><input type="file" ref="inputFile" @change=uploadFile()>
-      <button @click=createItem>Create this Item !</button>
+    <div class="columns">
+    <div class="column">
+      <b-field style="width:100%" > <b-input v-model="inputName" placeholder="Enter the title"></b-input></b-field>
+      <input class="button" type="file" ref="inputFile" @change=uploadFile()>
+    </div>
+    <div class="column" >
+            <b-field >
+            <b-input placeholder="Enter a summary oif the event" style="width:100%" v-model="inputDescription" maxlength="300" type="textarea"></b-input>
+        </b-field>
+    <!-- <p>Summary :<textarea style="width:100%" ></textarea></p> -->
+    
+    
+   
+    </div>
+    
+    </div>
+       <button class="button is-success is-light" @click=createItem>Create this Item !</button>
     </form>
   </div>
 </template>
+<style>
+.input .button {
+
+}
+</style>
 <script>
 import axios from 'axios';
   export default {
