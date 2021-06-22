@@ -56,12 +56,17 @@ export default {
     methods: {
       login:  function(event) {
         console.log(event)
-        this.loggedIn = true
         this.tokens = event
+
+        if (event.username) {
+          return console.log(":no ways")
+        }
         localStorage.setItem("token", JSON.stringify(event))
         let decoded = jwt_decode(event.access);
-        let uuid = decoded.user_id
+        const uuid = decoded.user_id
         localStorage.setItem("uuid", JSON.stringify(uuid))
+        this.uuid = JSON.parse(localStorage.getItem("uuid"))
+        this.loggedIn = true
         this.$router.push('/home')
       },
       logout: function() {
@@ -70,6 +75,8 @@ export default {
         this.tokens = ''
         localStorage.setItem("token", "")
         localStorage.setItem("uuid", "")
+        this.uuid = ''
+        
       },
 
     }

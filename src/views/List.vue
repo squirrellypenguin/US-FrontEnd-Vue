@@ -52,7 +52,7 @@
         <b-carousel-item v-for="event of events" v-bind:key="event.id">
             <section :class="`hero is-medium`">
                 <div class="card">
-                <h1 class="title">{{event.title}}</h1>
+                <h1 >{{event.title}}</h1>
                 <p>{{event.summary}}</p>
                 <img  style="width: 100%; " :src="event.url" /> 
                 </div>
@@ -68,13 +68,13 @@
 
 
 
-
 <style scoped src="@/assets/main.css">
 @media only screen and (max-width: 600px){
 .container {
 width: 300px;
 }
 }
+.foo {color: pink}
 
 </style>
 

@@ -30,7 +30,7 @@
         <template #end>
             <b-navbar-item >
                 <div >
-                 <router-link to="/register" v-bind:URL="URL" v-if="!loggedIn"><button class="button is-success">Register</button></router-link> 
+                 <router-link to="/register" v-bind:URL="URL" v-if="!loggedIn"><button class="button is-success is-light">Register</button></router-link> 
                     
                         <router-link to="/login" v-bind:URL="URL" v-if="!loggedIn"><button class="button is-success">Login</button></router-link> 
                         <button class="button is-danger" v-if="loggedIn" @click="logout">Logout</button> 

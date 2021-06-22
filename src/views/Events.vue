@@ -37,7 +37,7 @@
             </div>
             <div class="column is-two-fifths is-narrow-mobile">
               <h2>
-                <bold>{{ event.title }}</bold>
+                {{ event.title }}
               </h2>
               <p style="text-align: left">
                 {{ event.summary }} 
@@ -233,8 +233,17 @@ export default {
       this.before(this.uuid);
     },
   },
+  
+ 
   beforeMount() {
-    this.before(this.uuid);
+  //  const delay = ms => new Promise(res => setTimeout(res, ms));
+  //  let foo = async () => {
+  //     await delay(5000)
+  //     console.log("waiting time")
+  //       this.before(this.uuid);
+  //  }
+  //  foo(8000)
+   this.before(this.uuid);
   },
 };
 </script>
