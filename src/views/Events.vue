@@ -150,7 +150,9 @@ export default {
         .then((response) => response.json())
         .then((data) => {
           this.events = data;
+          
         });
+      
     },
     create: function() {
       console.log(this.$attrs.places.lat);
@@ -231,6 +233,7 @@ export default {
       this.url = "";
       console.log(this.uuid)
       this.before(this.uuid);
+   
     },
   },
   
