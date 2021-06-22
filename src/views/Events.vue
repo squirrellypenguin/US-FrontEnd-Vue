@@ -204,7 +204,7 @@ export default {
     editItem: async function() {
       //  const id = event.target.id
       console.log(this.uid);
-      let foo = fetch(
+      fetch(
         "https://django-backend-bx.herokuapp.com/events/" + this.uid + "/",
         {
           method: "put",
@@ -225,10 +225,11 @@ export default {
           }),
         }
       );
-      console.log(foo);
+    
       this.title = "";
       this.summary = "";
       this.url = "";
+      console.log(this.uuid)
       this.before(this.uuid);
     },
   },
