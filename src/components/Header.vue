@@ -3,21 +3,21 @@
         <template #brand>
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
                 <img class="foo" style="height: 300px"
-                    src="https://res.cloudinary.com/duvzhauq9/image/upload/v1624148557/logo_bfuoal.png"
-                    alt="Lightweight UI components for Vue.js based on Bulma"
+                    src="https://res.cloudinary.com/duvzhauq9/image/upload/c_crop,h_227,w_204,x_0,y_0/v1624148557/logo_bfuoal.png"
+                    alt="Logo"
                 >
             </b-navbar-item>
         </template>
         <template #start>
-            <b-navbar-item href="#">
-                      <router-link to="/list">List</router-link> 
+            <b-navbar-item href="#" label="List">
+            <router-link to="/list">List</router-link> 
 
             </b-navbar-item>
-            <b-navbar-item class="foo" href="#">
-             <router-link clas="foo" :to="{ path: '/home' }">Events</router-link>
+            <b-navbar-item label="Events" class="foo" href="#">
+            <router-link clas="foo" :to="{ path: '/home' }">Events</router-link>
                 
             </b-navbar-item>
-            <b-navbar-dropdown class="foo" label="Info">
+            <b-navbar-dropdown class="foo" label="">
                 <b-navbar-item href="#">
                    <router-link to="/about">About</router-link>
                 </b-navbar-item>

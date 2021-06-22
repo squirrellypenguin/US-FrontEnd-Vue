@@ -24,30 +24,30 @@
   <div class="tile is-vertical is-8">
     <div class="tile">
       <div class="tile is-parent is-vertical">
-        <article class="tile is-child notification is-primary">
-          <p style="padding-top: 10px; margin-right: -25px" class="title-font title">Cement Safari</p>
+        <article class="tile is-child notification">
+          <p style="padding-top: 10px; margin-right: -25px" class="title-font title">Urban Safari</p>
           <p style="padding-left: 20px;  text-align: justify; font-size: 14px" class="mono subtitle">your desittion to catalog the ever increaing incursion on human space from these animal invaders.</p>
         </article>
-        <article class="tile is-child notification is-warning">
+        <article class="tile shadow is-child notification is-warning">
         
           <p style="text-align: justify ;font-size:14px" class="subtitle">Whether it's turkeys on the highway or a pizza stealing rodent, you will find the space to detail these adventures here.</p>
         </article>
       </div>
       <div class="tile is-parent">
-        <article class="tile is-child notification is-info">
+        <article class="tile is-child notification is-danger">
        
-          <p class="subtitle">Animals being jerks</p>
-          <figure class="image is-4by3">
-            <img src="https://bulma.io/images/placeholders/640x480.png">
+          <p class="shadow subtitle">Animals being jerks</p>
+          <figure class=" image is-4by3">
+            <img src="https://res.cloudinary.com/duvzhauq9/image/upload/v1624370742/6BVNprzp_lbctdu.jpg">
           </figure>
             <figure class="image is-4by3">
-            <img src="https://bulma.io/images/placeholders/640x480.png">
+            <img src="https://res.cloudinary.com/duvzhauq9/image/upload/v1624370965/jer7_guagsb.jpg">
           </figure>
         </article>
       </div>
     </div>
     <div class="tile is-parent">
-      <article class="tile is-child notification is-danger">
+      <article class="tile is-child notification is-dark">
         <p style="font-size: 24px" class="title">Explore the reports! </p>
         <p style="margin-left: -15px;     line-height: 20px;text-align: left; margin-right: -75px" class="mono subtitle">If you want to contribute please signup.</p>
         <div class="content">
@@ -57,9 +57,9 @@
     </div>
   </div>
   <div class="tile is-parent">
-    <article class="tile is-child notification is-success">
+    <article class="tile is-child notifications">
       <div class="content">
-        <p class="title">Tall tile</p>
+        <p class="title"></p>
         <p class="subtitle"></p>
         <div class="content">
           <!-- Content -->
@@ -73,6 +73,12 @@
 <style scoped src="@/assets/main.css">
 .title-font {
     font-family: 'Chivo';
+}
+.shadow {
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
+  box-shadow:         3px 3px 5px 6px #000;  
+  filter: drop-shadow(.5rem .5rem 1rem #e23)/* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 }
 </style>
 <script>

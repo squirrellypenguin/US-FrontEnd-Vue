@@ -37,7 +37,7 @@
             </div>
             <div class="column is-two-fifths is-narrow-mobile">
               <h2>
-                <bold>{{ event.id }}</bold>
+                <bold>{{ event.title }}</bold>
               </h2>
               <p style="text-align: left">
                 {{ event.summary }} 

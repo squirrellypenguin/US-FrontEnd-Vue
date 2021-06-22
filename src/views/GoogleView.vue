@@ -3,7 +3,10 @@
     
     
     <div v-if="this.loggedIn !== true">
-    <p> Hidden from you</p>
+    <br/>
+    Please login to view your events. <br/>
+  <br/>
+   <router-link to="/login" v-bind:URL="URL" v-if="!loggedIn"><button class="button is-success">Login</button></router-link>
     </div>
 
 

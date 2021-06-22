@@ -1,6 +1,17 @@
 <template>
   <div class="font container">
-  
+
+      <div v-if="this.loggedIn !== true">
+    <br/>
+    Please login to view your events. <br/>
+  <br/>
+   <router-link to="/login" v-bind:URL="URL" v-if="!loggedIn"><button class="button is-success">Login</button></router-link>
+    </div>
+
+
+
+  <div   v-if="this.loggedIn === true">
+
         <GmapAutocomplete  style="line-height: 34px; font-size: 20px;"
         @place_changed='setPlace'
       />
@@ -50,7 +61,7 @@
     </b-carousel>
     </div>
   </div>
-
+</div>
 
   
 </template>
